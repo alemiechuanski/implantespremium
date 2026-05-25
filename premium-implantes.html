@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Implantes | Permita-se Contagiar</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #8530f1;
+    --purple-light: #c298f8;
+    --purple-dark: #6020c0;
+    --purple-bg: #f3eafd;
+    --purple-section-bg: #d8bcf9;
+    --green-btn: #2e7d32;
+    --green-hover: #1b5e20;
+    --white: #ffffff;
+    --gray-light: #F5F4F0;
+    --gray-mid: #E0DDD8;
+    --gray-text: #555;
+    --dark: #1a1a1a;
+    --font: 'Montserrat', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--dark); background: var(--white); overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    min-height: 580px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    padding: 52px 48px 52px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .logo { margin-bottom: 4px; }
+  .logo img { height: 72px; width: auto; }
+
+  .hero-headline {
+    font-family: var(--font);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--purple);
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-text);
+    max-width: 420px;
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--green-btn);
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 700;
+    width: fit-content;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(46,125,50,0.25);
+  }
+  .btn-whatsapp:hover { background: var(--green-hover); transform: translateY(-2px); }
+  .btn-whatsapp:active { transform: translateY(0); }
+  .btn-whatsapp svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+  .hero-image {
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0e8fc 0%, #e0d0f5 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ── DIFERENCIAIS ── */
+  .diferenciais {
+    background: var(--white);
+    padding: 44px 48px;
+    border-bottom: 1px solid var(--gray-mid);
+  }
+  .diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .diferencial-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .diferencial-icon {
+    width: 56px; height: 56px;
+    background: var(--purple-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .diferencial-icon svg {
+    width: 26px; height: 26px;
+    fill: none;
+    stroke: var(--purple);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .diferencial-text {
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-text);
+    line-height: 1.4;
+  }
+
+  /* ── SEÇÕES: títulos ── */
+  .section-title {
+    font-family: var(--font);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--gray-text);
+    margin-bottom: 36px;
+  }
+
+  /* ── DEPOIMENTOS ── */
+  .depoimentos {
+    background: var(--white);
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .carousel-wrapper {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto 16px;
+  }
+  .carousel-track {
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+    aspect-ratio: 16/9;
+  }
+  .carousel-track iframe {
+    width: 100%; height: 100%;
+    display: block; border: none;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.92);
+    border: none; width: 44px; height: 44px;
+    border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: background 0.15s, transform 0.15s;
+    z-index: 10;
+  }
+  .carousel-btn:hover { background: white; transform: translateY(-50%) scale(1.05); }
+  .carousel-btn.prev { left: -22px; }
+  .carousel-btn.next { right: -22px; }
+  .carousel-btn svg { width: 18px; height: 18px; color: var(--purple-dark); }
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gray-mid); border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.2s; padding: 0;
+  }
+  .dot.active { background: var(--purple); transform: scale(1.2); }
+  .depoimentos .btn-whatsapp { margin: 32px auto 0; }
+
+  /* ── HUMANIZADO (lilás) ── */
+  .section-arrow {
+    width: 40px; height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto -20px;
+    position: relative; z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .section-arrow svg { width: 18px; height: 18px; color: var(--purple); }
+
+  .humanizado {
+    background: var(--purple-section-bg);
+    padding: 64px 48px;
+    text-align: center;
+  }
+  .humanizado .section-title { color: var(--purple-dark); }
+  .humanizado .section-subtitle { color: rgba(50,10,90,0.7); }
+  .humanizado-desc {
+    font-size: 15px;
+    color: rgba(40,10,80,0.85);
+    max-width: 580px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .humanizado-desc em { font-style: normal; font-weight: 700; color: var(--purple-dark); }
+
+  .fotos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 820px;
+    margin: 0 auto 32px;
+  }
+  .foto-slot {
+    aspect-ratio: 3/4;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(133,48,241,0.15);
+  }
+  .foto-slot img { width: 100%; height: 100%; object-fit: cover; }
+
+  .humanizado-quote {
+    font-size: 15px;
+    color: rgba(40,10,80,0.85);
+    max-width: 580px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .humanizado-quote em { font-style: normal; font-weight: 700; color: var(--purple-dark); }
+
+  .etapas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 780px;
+    margin: 0 auto 40px;
+    text-align: left;
+  }
+  .etapa { display: flex; flex-direction: column; gap: 6px; }
+  .etapa-num {
+    font-family: var(--font);
+    font-size: 52px;
+    font-weight: 800;
+    color: rgba(133,48,241,0.2);
+    line-height: 1;
+  }
+  .etapa-text {
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(40,10,80,0.85);
+    line-height: 1.4;
+  }
+
+  /* ── EXPERIÊNCIA ── */
+  .experiencia {
+    background: var(--gray-light);
+    padding: 64px 48px;
+    text-align: center;
+  }
+  .experiencia-content {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+    align-items: start;
+    max-width: 620px;
+    margin: 0 auto 20px;
+    text-align: left;
+  }
+  .badge-img { width: 80px; height: 80px; object-fit: contain; flex-shrink: 0; }
+  .experiencia-title {
+    font-family: var(--font);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .experiencia-title em { font-style: italic; color: var(--purple); }
+  .experiencia-text {
+    font-size: 15px;
+    color: var(--gray-text);
+    line-height: 1.7;
+  }
+  .experiencia-extra {
+    font-size: 15px;
+    color: var(--gray-text);
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 auto 32px;
+    text-align: left;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    background: var(--gray-light);
+    padding: 64px 48px;
+    border-top: 1px solid var(--gray-mid);
+  }
+  .faq .section-title { text-align: center; margin-bottom: 40px; }
+  .faq-list { max-width: 720px; margin: 0 auto 40px; }
+  .faq-item { border-bottom: 1px solid var(--gray-mid); }
+  .faq-question {
+    width: 100%; background: none; border: none;
+    text-align: left; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 14px; font-weight: 600;
+    color: var(--dark); gap: 16px;
+    transition: color 0.2s;
+  }
+  .faq-question:hover { color: var(--purple); }
+  .faq-icon {
+    flex-shrink: 0; width: 22px; height: 22px;
+    border: 1.5px solid var(--purple);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .faq-icon svg {
+    width: 12px; height: 12px;
+    color: var(--purple);
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-icon { background: var(--purple); }
+  .faq-item.open .faq-icon svg { color: white; transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+  }
+  .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 20px; }
+  .faq-answer p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+  .faq .btn-whatsapp { margin: 0 auto; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: linear-gradient(135deg, #4a10b0 0%, #8530f1 100%);
+    color: white;
+    padding: 52px 64px 36px;
+    text-align: center;
+  }
+  .footer-logo { margin: 0 auto 20px; height: 80px; width: auto; }
+  .footer-clinic {
+    font-family: var(--font);
+    font-size: 13px; font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 10px;
+  }
+  .footer-details {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  .footer-cro {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+  }
+  .footer-privacy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .footer-privacy strong {
+    display: block;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 4px;
+  }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 24px 0;
+  }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+  /* ── RESPONSIVO ── */
+  @media (max-width: 900px) {
+    .fotos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-content { padding: 36px 24px 28px; order: 1; }
+    .hero-image { order: 0; height: 280px; }
+    .hero-headline { font-size: 26px; }
+    .diferenciais { padding: 36px 24px; }
+    .diferenciais-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .depoimentos { padding: 48px 20px; }
+    .carousel-btn.prev { left: -12px; }
+    .carousel-btn.next { right: -12px; }
+    .humanizado { padding: 48px 24px; }
+    .etapas { grid-template-columns: repeat(2, 1fr); }
+    .experiencia { padding: 48px 24px; }
+    .experiencia-content { grid-template-columns: 1fr; text-align: center; }
+    .badge-img { margin: 0 auto; }
+    .experiencia-extra { text-align: center; }
+    .faq { padding: 48px 24px; }
+    footer { padding: 40px 24px 28px; }
+    .section-title { font-size: 22px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 22px; }
+    .fotos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="logo">
+      <img src="logo_premium_positivo.png" alt="Premium Implantes - Permita-se Contagiar">
+    </div>
+    <h1 class="hero-headline">Volte a sorrir, mastigar e viver com segurança novamente.</h1>
+    <p class="hero-subtitle">Implantes dentários com planejamento individualizado, atendimento humanizado e mais de 10 anos de experiência transformando sorrisos em Francisco Beltrão.</p>
+    <a href="https://wa.me/5546999777518" class="btn-whatsapp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Agendar Avaliação no WhatsApp
+    </a>
+  </div>
+  <div class="hero-image">
+    <img src="Foto_chrisler_header.png" alt="Dr. Chrisler - Especialista em Implantes Dentários">
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
+  <div class="diferenciais-grid">
+    <div class="diferencial-item">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      </div>
+      <span class="diferencial-text">+10 anos de experiência com implantes</span>
+    </div>
+    <div class="diferencial-item">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <span class="diferencial-text">Atendimento acolhedor e humanizado</span>
+    </div>
+    <div class="diferencial-item">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <span class="diferencial-text">Garantia sobre os implantes realizados</span>
+    </div>
+    <div class="diferencial-item">
+      <div class="diferencial-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <span class="diferencial-text">Sala exclusiva de repouso para pacientes</span>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <h2 class="section-title">Quem já passou pela Premium sente a diferença.</h2>
+  <p class="section-subtitle">Confira o que quem já fez seus implantes dentários aqui na Premium tem a dizer sobre o procedimento:</p>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <iframe id="youtubeFrame" src="" allow="autoplay; encrypted-media" allowfullscreen title="Depoimento Premium Implantes"></iframe>
+    </div>
+    <button class="carousel-btn prev" onclick="changeVideo(-1)" aria-label="Vídeo anterior">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button class="carousel-btn next" onclick="changeVideo(1)" aria-label="Próximo vídeo">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <div class="carousel-dots" id="carouselDots"></div>
+
+  <a href="https://wa.me/5546999777518" class="btn-whatsapp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Agendar Avaliação no WhatsApp
+  </a>
+</section>
+
+<!-- SETA -->
+<div class="section-arrow">
+  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+</div>
+
+<!-- HUMANIZADO -->
+<section class="humanizado">
+  <h2 class="section-title">Atendimento humanizado</h2>
+  <p class="section-subtitle" style="color:rgba(50,10,90,0.65);">Sabemos que muitos pacientes são céticos e passam horas no procedimento.</p>
+  <p class="humanizado-desc">Por isso, criamos uma sala de repouso exclusiva, com iluminação acolhedora e poltrona confortável para pousar durante o tratamento. <em>Porque conforto também faz parte do cuidado.</em></p>
+
+  <div class="fotos-grid">
+    <div class="foto-slot"><img src="foto_sala_repouso_1.png" alt="Sala de repouso - entrada"></div>
+    <div class="foto-slot"><img src="foto_sala_repouso_2.png" alt="Sala de repouso - lustre"></div>
+    <div class="foto-slot"><img src="foto_sala_repouso_3.png" alt="Sala de repouso - poltrona"></div>
+    <div class="foto-slot"><img src="foto_sala_repouso_4.png" alt="Sala de repouso - ambiente"></div>
+  </div>
+
+  <p class="humanizado-quote">Aqui, cada paciente é <em>único</em>. Cada pessoa é acolhida com escuta, atenção e clareza em <em>todas as etapas do tratamento:</em></p>
+
+  <div class="etapas">
+    <div class="etapa"><span class="etapa-num">1</span><span class="etapa-text">Começa o atendimento ao seu caso</span></div>
+    <div class="etapa"><span class="etapa-num">2</span><span class="etapa-text">Exames e planejamento individualizado</span></div>
+    <div class="etapa"><span class="etapa-num">3</span><span class="etapa-text">Explicação clara das possibilidades de tratamento</span></div>
+    <div class="etapa"><span class="etapa-num">4</span><span class="etapa-text">Acompanhamento próximo durante todo o processo</span></div>
+  </div>
+
+  <a href="https://wa.me/5546999777518" class="btn-whatsapp" style="margin:0 auto;" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Agendar Avaliação no WhatsApp
+  </a>
+</section>
+
+<!-- SETA -->
+<div class="section-arrow" style="background:var(--gray-light);">
+  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+</div>
+
+<!-- EXPERIÊNCIA -->
+<section class="experiencia">
+  <div class="experiencia-content">
+    <img src="ícone_experiência_e_garantia.png" alt="Ícone experiência e garantia" class="badge-img">
+    <div>
+      <h2 class="experiencia-title"><em>Experiência</em> e garantia:</h2>
+      <p class="experiencia-text">O Dr. Chrisler atua há mais de 10 anos com implantes dentários, utilizando técnicas seguras, materiais de qualidade e planejamento individualizado. <strong>Tanto que oferece garantia sobre os implantes realizados na clínica.</strong></p>
+    </div>
+  </div>
+  <p class="experiencia-extra">Na Premium, acreditamos que um implante vai muito além da estética. Ele devolve conforto, confiança e qualidade de vida. Por isso, cada tratamento é planejado de forma individual, respeitando a saúde, o tempo e a história de cada paciente.</p>
+  <a href="https://wa.me/5546999777518" class="btn-whatsapp" style="margin:0 auto;" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Agendar Avaliação no WhatsApp
+  </a>
+</section>
+
+<!-- SETA -->
+<div class="section-arrow" style="background:var(--gray-light);">
+  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+</div>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="section-title">Perguntas frequentes (FAQ)</h2>
+  <div class="faq-list" id="faqList">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Implante dentário dói?
+        <span class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Hoje, com anestesia moderna, planejamento adequado e técnicas atuais, o procedimento costuma ser muito mais tranquilo do que muitos imaginam.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Tenho medo. Mesmo assim posso fazer?
+        <span class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Sim. Muitos dos nossos pacientes chegam inseguros ou traumatizados por experiências antigas. Nosso atendimento é pensado justamente para acolher esse paciente.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Quem usa dentadura pode colocar implantes?
+        <span class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Sim. O implante dentário devolve os dentes fixos novamente para quem convive há anos com a dentadura.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Quanto tempo demora o tratamento?
+        <span class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Cada caso é individual. Alguns tratamentos podem ser realizados em etapas mais rápidas e outros exigem maior planejamento.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Existe risco de rejeição?
+        <span class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Quando existe indicação correta, técnica adequada e acompanhamento profissional, os implantes possuem altos índices de sucesso.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Como saber se posso fazer implante?
+        <span class="faq-icon"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></span>
+      </button>
+      <div class="faq-answer"><p>Através de uma avaliação clínica e exames específicos.</p></div>
+    </div>
+
+  </div>
+  <a href="https://wa.me/5546999777518" class="btn-whatsapp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Agendar Avaliação no WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="logo_premium_negativo.png" alt="Premium Implantes" class="footer-logo">
+  <div class="footer-clinic">PREMIUM IMPLANTES &amp; ORTODONTIA &nbsp;|&nbsp; 2026 © Todos os direitos reservados</div>
+  <div class="footer-details">
+    Rua Ponta Grossa, 2092 | Centro, Francisco Beltrão / PR<br>
+    Fone: 46 3527.1097 &nbsp;|&nbsp; premiumiortodontia@hotmail.com
+  </div>
+  <div class="footer-cro">
+    CRO/PR 3143 &ndash; Responsável Técnico: Dr. Chrisler Luis de Andrade &ndash; CD-CRO/PR 11766
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-privacy">
+    <strong>Aviso de Privacidade:</strong>
+    Seus dados estão seguros conosco. As informações enviadas neste formulário serão utilizadas apenas para contato e agendamento, conforme a Lei Geral de Proteção de Dados (LGPD). Não compartilhamos seus dados com terceiros.
+  </div>
+</footer>
+
+<script>
+  // ── CARROSSEL YOUTUBE ──
+  const videoIds = [
+    '_42y8iWuSUY',
+    'jVxx9m6xe_0',
+    'sxPj4g4yeKo',
+    'I-qybQHo-Z8',
+    'IlOw3E-JNck'
+  ];
+
+  let currentVideo = 0;
+  let autoplayTimer = null;
+  const AUTOPLAY_DELAY = 180000;
+
+  const frame = document.getElementById('youtubeFrame');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  function buildDots() {
+    videoIds.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Vídeo ' + (i + 1));
+      dot.onclick = () => goToVideo(i);
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateDots() {
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentVideo);
+    });
+  }
+
+  function loadVideo(index, autoplay) {
+    const id = videoIds[index];
+    const ap = autoplay ? 1 : 0;
+    frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=' + ap + '&rel=0&modestbranding=1';
+    updateDots();
+    resetAutoplayTimer();
+  }
+
+  function changeVideo(dir) {
+    currentVideo = (currentVideo + dir + videoIds.length) % videoIds.length;
+    loadVideo(currentVideo, true);
+  }
+
+  function goToVideo(index) {
+    currentVideo = index;
+    loadVideo(index, true);
+  }
+
+  function resetAutoplayTimer() {
+    if (autoplayTimer) clearTimeout(autoplayTimer);
+    autoplayTimer = setTimeout(() => changeVideo(1), AUTOPLAY_DELAY);
+  }
+
+  buildDots();
+  loadVideo(0, false);
+
+  // ── FAQ ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
