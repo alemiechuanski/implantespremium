@@ -714,6 +714,15 @@
     document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+ 
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(botao) {
+  botao.addEventListener('click', function() {
+    gtag('event', 'clique_whatsapp', {
+      'texto_botao': botao.textContent.trim(),
+      'pagina': window.location.pathname
+    });
+  });
+});
 </script>
 
 </body>
